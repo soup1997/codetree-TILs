@@ -6,6 +6,9 @@ def row_search(row):
     
             if cnt >= m:
                 return 1
+        
+        else:
+            cnt = 1
     
     return 0
 
@@ -17,6 +20,9 @@ def col_search(col):
 
             if cnt >= m:
                 return 1
+        
+        else:
+            cnt = 1
     return 0
 
 # make grid
