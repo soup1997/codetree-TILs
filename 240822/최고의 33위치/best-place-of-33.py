@@ -12,6 +12,8 @@ def search(x, y, dx, dy):
         for j in range(y, dy+1):
             if arr[i][j] == 1:
                 num += 1
+    
+    return num
 
 
 max_gold = 0
@@ -21,7 +23,7 @@ for i in range(N):
         if i + 2 >= N or j + 2 >= N:
             continue
 
-        num_of_gold = serach(i, j, i+2, j+2)
+        num_of_gold = search(i, j, i+2, j+2)
 
         max_gold = max(max_gold, num_of_gold)
 
