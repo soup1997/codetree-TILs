@@ -1,32 +1,45 @@
 def row_search(row):
-    check = 0
-    for j in range(n):
-        if arr[row][:].count(arr[row][j]) >= m:
-            check += 1
+    cnt = 1
+    for j in range(1, n):
+        if arr[row][j-1] == arr[row][j]:
+            cnt += 1
     
-    return check
+    if cnt >= m:
+        return 1
+    
+    else:
+        return 0
 
 def col_search(col):
-    check = 0
-    for i in range(n):
-        if arr[:][col].count(arr[i][col]) >= m:
-            check += 1
+    cnt = 1
+    for i in range(1, n):
+        if arr[i-1][col] == arr[i][col]:
+            cnt += 1
+
+    if cnt >= m:
+        return 1
     
-    return check
+    else:
+        return 0
 
 # make grid
 n, m = map(int, input().split())
+
 arr = []
 for i in range(n):
     vec = list(map(int, input().split()))
     arr.append(vec)
 
-# find happy sequence
-row_check = 0
-col_check = 0
+if m == 1:
+    print(2*n)
 
-for i in range(n):
-    row_check += row_search(row=i)
-    col_check += col_search(col=i)
+else:
+    # find happy sequence
+    row_check = 0
+    col_check = 0
 
-print(row_check + col_check)
+    for i in range(n):
+        row_check += row_search(row=i)
+        col_check += col_search(col=i)
+
+    print(row_check + col_check)
