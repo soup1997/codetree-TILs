@@ -4,14 +4,6 @@ n = int(sys.stdin.readline())
 arr = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
 r, c = map(int, sys.stdin.readline().split())
 
-# n = 4
-# arr = [[1, 2, 4, 3],
-# [3, 2, 2, 3],
-# [3, 1, 6, 2],
-# [4, 5, 4, 4]]
-
-# r, c = 3, 3
-
 r, c = r-1, c-1
 size = (arr[r][c]) - 1
 
