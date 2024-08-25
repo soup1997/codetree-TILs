@@ -27,8 +27,9 @@ def explosion(bombs):
 
 
 res = explosion(bombs)
+
 print(len(res))
 
-if not len(res):
+if len(res):
     for i in range(len(res)):
         print(res[i])
