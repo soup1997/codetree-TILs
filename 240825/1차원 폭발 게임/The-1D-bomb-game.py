@@ -1,9 +1,5 @@
 import sys
 
-n, m = map(int, sys.stdin.readline().split())
-
-bombs = [int(sys.stdin.readline()) for _ in range(n)]
-
 def explosion(bombs, m):
     if m == 1:
         return []
@@ -18,7 +14,6 @@ def explosion(bombs, m):
 
                     if cnt >= m:
                         del bombs[i:i+cnt]
-                        
                 
                 else:
                     cnt = 1
@@ -29,11 +24,17 @@ def explosion(bombs, m):
 
         return bombs
 
+# input        
+n, m = map(int, sys.stdin.readline().split())
 
+bombs = [int(sys.stdin.readline()) for _ in range(n)]
+
+# execution
 res = explosion(bombs, m)
 
-print(len(res))
 
+# output
+print(len(res))
 if len(res):
     for i in range(len(res)):
         print(res[i])
