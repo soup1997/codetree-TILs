@@ -17,11 +17,18 @@ for i in range(max(0, r-size), min(n, r+1+size)):
             arr[i][j] = 0 
 
 # arrangement
-for row in range(n-1, 0, -1):
-    for col in range(n):
+for col in range(n):
+    for row in range(n-1, 0, -1):
         if arr[row][col] == 0:
-            arr[row][col] = arr[row-1][col]
-            arr[row-1][col] = 0
+            start = row
+
+            while start != -1:
+                if arr[start][col]:
+                    arr[row][col] = arr[start][col]
+                    arr[start][col] = 0
+
+                start -=1
+
 
 for vec in arr:
     print(*vec)
