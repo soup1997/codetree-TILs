@@ -12,18 +12,13 @@ for i in range(n-1):
         cnt += 1
 
         if cnt >= m:
-            cnt = 1
-            j = i+1
-
-            while (j < n) and (vec[i] == vec[j]): # find until same element appears
-                j += 1
-
-            vec[i:j] = [0 for _ in range(j-i)] # explosion
-
-            for k in range(n-2):
+            vec[i:i+cnt] = [0 for _ in range(cnt)] # explosion
+            for k in range(n-2): # shift
                 if vec[k] != 0:
                     vec[k+1] = vec[k]
                     vec[k] = 0
+            
+            cnt = 1 # count initialization
 
     else:
         cnt = 1
