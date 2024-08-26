@@ -4,10 +4,6 @@ import sys
 n, m = map(int, sys.stdin.readline().split())
 vec = [int(sys.stdin.readline()) for _ in range(n)]
 
-n, m = 5 ,2
-vec = [1, 2, 2, 1, 1]
-
-
 cnt = 1
 
 for i in range(n-1):
