@@ -20,12 +20,12 @@ def visitCheck(newX, newY): # 방문한 grid인지 검사
 def can_go(newX, newY): # 이동 여부 체크
     return inRange(newX, newY) and snake(newX, newY) and visitCheck(newX, newY)
 
-def DFS(cx, cy):
-    for dx, dy in zip(dxs, dys):
-        newX, newY = cx + dx, cy + dy
+def DFS(currX, currY):
+    for dx, dy in zip(dxs, dys): # 현재 grid에서 아래, 우측인접한 grid 확인
+        newX, newY = currX + dx, currY + dy
 
         if can_go(newX, newY):
-            visited[newX][newY] = 1
+            visited[newX][newY] = True
             DFS(newX, newY)
 
 
