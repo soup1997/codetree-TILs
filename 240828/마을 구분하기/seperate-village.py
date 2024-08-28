@@ -33,17 +33,19 @@ def DFS(x, y):
             visited[X][Y] = True
             DFS(X, Y)
     
-    return 1 # 재귀 탐색 끝나면 마을 1개 카운트 완료
+    return 1
 
 if __name__=="__main__":
     numTown = 0
     numPerson = 1
     people = []
+
     for i in range(n):
         for j in range(n):
-            if not visited[i][j] and grid[i][j] == 1:
-                startX, startY = i, j
-                numTown += DFS(startX, startY)
+            if not visited[i][j] and grid[i][j] == 1: # 방문하지 않은 곳이고 사람이 있는 곳이라면
+                visited[i][j] = True # 방문 표시
+                startX, startY = i, j # 해당 위치부터 탐색
+                numTown += DFS(startX, startY) # 재귀 탐색 끝나면 마을 1개 카운트 완료
                 people.append(numPerson)
                 numPerson = 1
     people.sort()
