@@ -18,7 +18,6 @@ def inRange(newX, newY): # grid 범위 내 인지 검사
     return (0 <= newX) and (newX < n) and (0 <= newY) and (newY < m)
 
 def snake(newX, newY): # 해당 grid에 뱀이 있는지 검사
-    print(grid(newX,))
     answer = True if grid[newX][newY] else False
     return answer
 
