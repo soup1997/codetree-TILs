@@ -24,7 +24,7 @@ def visitCheck(newX, newY): # 방문하지 않은 grid인지 검사
     return not visited[newX][newY]
 
 def can_go(newX, newY): # 이동 여부 체크
-    return (inRange(newX, newY)) and (snake(newX, newY)) and (not visitCheck(newX, newY))
+    return (inRange(newX, newY)) and (snake(newX, newY)) and (visitCheck(newX, newY))
 
 def DFS(x, y):
     dxs, dys = [1, 0], [0, 1] # 아래, 우측으로만 이동
