@@ -18,11 +18,11 @@ def inRange(newX, newY): # grid 범위 내 인지 검사
     return (0 <= newX) and (newX < n) and (0 <= newY) and (newY < m)
 
 def snake(newX, newY): # 해당 grid에 뱀이 있는지 검사
-    answer = True if grid[newX][newY] else False
+    answer = True if grid[newX][newY] == 1 else False
     return answer
 
 def visitCheck(newX, newY): # 방문하지 않은 grid인지 검사
-    answer = False if visited[newX][newY] else True
+    answer = True if visited[newX][newY] == False else False
     return answer
 
 def can_go(newX, newY): # 이동 여부 체크
@@ -46,5 +46,4 @@ def DFS(x, y):
 if __name__=="__main__":
     startX, startY = 0, 0 # 초기 시작 위치
     DFS(startX, startY)
-    print(visited)
     print(1) if visited[-1][-1] else print(0)
