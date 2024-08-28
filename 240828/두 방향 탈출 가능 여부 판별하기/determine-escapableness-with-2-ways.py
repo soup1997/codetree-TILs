@@ -21,7 +21,7 @@ def snake(newX, newY): # 해당 grid에 뱀이 있는지 검사
     answer = True if grid[newX][newY] else False
     return answer
 
-def visitCheck(newX, newY): # 방문한 grid인지 검사
+def visitCheck(newX, newY): # 방문하지 않은 grid인지 검사
     answer = False if visited[newX][newY] else True
     return answer
 
@@ -46,4 +46,5 @@ def DFS(x, y):
 if __name__=="__main__":
     startX, startY = 0, 0 # 초기 시작 위치
     DFS(startX, startY)
+    print(visited)
     print(1) if visited[-1][-1] else print(0)
