@@ -37,7 +37,7 @@ def DFS(x, y):
 
 if __name__=="__main__":
     numTown = 0
-    numPerson = 0
+    numPerson = 1
     people = []
     for i in range(n):
         for j in range(n):
@@ -45,9 +45,9 @@ if __name__=="__main__":
                 startX, startY = i, j
                 numTown += DFS(startX, startY)
                 people.append(numPerson)
-                numPerson = 0
+                numPerson = 1
     people.sort()
-    
+
     print(numTown)
     for i in people:
         print(i)
