@@ -47,14 +47,14 @@ def DFS(x, y, k):
 
 
 if __name__=='__main__':
-    if maximum == 1:
+    if maximum == 1: # maximum이 1이라면 탐색할 필요도 없음, 안전지대 없음
         print(1, 0)
 
     else:
         data = {}
         for k in range(minimum, maximum):
             cnt = 0
-            visited = [[False for _ in range(m)] for _ in range(n)]
+            visited = [[False for _ in range(m)] for _ in range(n)] # for문 돌때마다 visited 초기화 필요
 
             for i in range(n):
                 for j in range(m):
