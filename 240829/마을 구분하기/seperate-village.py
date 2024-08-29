@@ -42,9 +42,8 @@ if __name__=="__main__":
 
     for i in range(n):
         for j in range(n):
-            if not visited[i][j] and grid[i][j] == 1: # 방문하지 않은 곳이고 사람이 있는 곳이라면
-                startX, startY = i, j # 해당 위치부터 탐색
-                numTown += DFS(startX, startY) # 재귀 탐색 끝나면 마을 1개 카운트 완료
+            if can_go(i, j): # 방문하지 않은 곳이고 사람이 있는 곳이라면
+                numTown += DFS(i, j) # 재귀 탐색 끝나면 마을 1개 카운트 완료
                 people.append(numPerson)
                 numPerson = 0
     people.sort()
