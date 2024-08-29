@@ -63,8 +63,8 @@ if __name__=='__main__':
                         
             data[k] = cnt
         
-        max_value = max(data.values())
-        for key, value in data.items():
-            if value == max_value:
+        max_value = max(data.values()) # dictionary에서 value 기준으로 minimum값을 찾기
+        for key, value in data.items(): # 순회하면서 minimum value인 key를 찾기
+            if value == max_value: # 가장 작은 k값을 출력해야하므로 찾으면 탐색 중지 
                 print(key, value)
                 break
