@@ -66,3 +66,4 @@ if __name__=='__main__':
         for key, value in data.items():
             if value == max_value:
                 print(key, value)
+                break
