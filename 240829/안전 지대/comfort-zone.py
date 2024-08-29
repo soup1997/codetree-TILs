@@ -50,8 +50,8 @@ if __name__=='__main__':
         print(1, 0)
 
     else:
-        prev_cnt = 0
-        for k in range(minimum, maximum+1):
+        data = {}
+        for k in range(minimum, maximum):
             cnt = 0
             visited = [[False for _ in range(m)] for _ in range(n)]
 
@@ -59,9 +59,10 @@ if __name__=='__main__':
                 for j in range(m):
                     if canGo(i, j, k):
                         cnt += DFS(i, j, k)
-
-            if prev_cnt > cnt:
-                print(k-1, prev_cnt)
-                break
-
-            prev_cnt = cnt
+                        
+            data[k] = cnt
+        
+        max_value = max(data.values())
+        for key, value in data.items():
+            if value == max_value:
+                print(key, value)
