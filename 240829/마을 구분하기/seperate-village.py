@@ -43,8 +43,9 @@ if __name__=="__main__":
     for i in range(n):
         for j in range(n):
             if can_go(i, j): # 방문하지 않은 곳이고 사람이 있는 곳이라면
+                visited[i][j] = True
                 numTown += DFS(i, j) # 재귀 탐색 끝나면 마을 1개 카운트 완료
-                people.append(numPerson-1)
+                people.append(numPerson)
                 numPerson = 1
 
     people.sort()
