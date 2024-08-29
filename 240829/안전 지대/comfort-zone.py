@@ -43,19 +43,22 @@ def DFS(x, y, k):
 
 
 if __name__=='__main__':
-    prev_cnt = 0
+    if maximum == 1:
+        print(1, 0)
 
-    for k in range(1, maximum):
-        cnt = 0
-        visited = [[False for _ in range(m)] for _ in range(n)]
+    else:
+        prev_cnt = 0
+        for k in range(1, maximum):
+            cnt = 0
+            visited = [[False for _ in range(m)] for _ in range(n)]
 
-        for i in range(n):
-            for j in range(m):
-                if canGo(i, j, k):
-                    cnt += DFS(i, j, k)
+            for i in range(n):
+                for j in range(m):
+                    if canGo(i, j, k):
+                        cnt += DFS(i, j, k)
 
-        if prev_cnt > cnt:
-            print(k-1, prev_cnt)
-            break
+            if prev_cnt > cnt:
+                print(k-1, prev_cnt)
+                break
 
-        prev_cnt = cnt
+            prev_cnt = cnt
