@@ -51,7 +51,7 @@ if __name__=='__main__':
 
     else:
         prev_cnt = 0
-        for k in range(minimum, maximum):
+        for k in range(minimum, maximum+1):
             cnt = 0
             visited = [[False for _ in range(m)] for _ in range(n)]
 
