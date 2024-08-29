@@ -4,10 +4,13 @@ n, m = map(int, sys.stdin.readline().split())
 grid = []
 
 maximum = 1
-for _ in range(n):
+minimum = 1
+
+for _ in range(n): # grid 만들기
     vec = list(map(int, sys.stdin.readline().split()))
     grid.append(vec)
     maximum = max(max(vec), maximum)
+    minimum = min(min(vec), minimum)
 
 directions = [[-1, 0], # 상
               [1, 0], # 하
@@ -48,7 +51,7 @@ if __name__=='__main__':
 
     else:
         prev_cnt = 0
-        for k in range(1, maximum):
+        for k in range(minimum, maximum):
             cnt = 0
             visited = [[False for _ in range(m)] for _ in range(n)]
 
