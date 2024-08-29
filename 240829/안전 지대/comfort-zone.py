@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(10000) # 재귀 리미트는 디폴트가 1000임, 재귀 이용해서 문제를 풀 경우 limit 범위 늘릴 것
 
 n, m = map(int, sys.stdin.readline().split())
 grid = []
