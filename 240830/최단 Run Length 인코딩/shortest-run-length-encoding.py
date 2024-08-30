@@ -28,14 +28,15 @@ def runLengthEncoding(x):
 
 if __name__=="__main__":
     string = sys.stdin.readline()
-    minimum_length = len(string)
 
-    if minimum_length == 1:
+    if len(string) == 1:
         print(2)
 
     else:
+        min_length = len(string)
+        
         for _ in range(len(string)):
             string = shiftOnce(string)
-            minimum_length = min(minimum_length, runLengthEncoding(string))
+            min_length = min(minimum_length, runLengthEncoding(string))
         
         print(minimum_length)
