@@ -41,12 +41,12 @@ def DFS(x, y, val):
 if __name__=="__main__":
     block_cnt = 0 # 블록 카운트 변수
     dfs_cnt = 0 # DFS 가 몇번 실행되는지 카운트하는 변수
-    max_block = 0
+    max_block = 1
 
     for i in range(n):
         for j in range(n):
             block_cnt += DFS(i, j, grid[i][j])
-            max_blobk = max(dfs_cnt, max_block)
+            max_block = max(max_block, dfs_cnt)
             dfs_cnt = 0
 
-    print(block_cnt, max_blobk)
+    print(block_cnt, max_block)
