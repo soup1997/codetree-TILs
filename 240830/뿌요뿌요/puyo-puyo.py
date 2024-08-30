@@ -45,9 +45,8 @@ if __name__=="__main__":
 
     for i in range(n):
         for j in range(n):
-            if notVisited(i, j):
-                block_cnt += DFS(i, j, grid[i][j])
-                dfs_cnt_list.append(dfs_cnt)
-                dfs_cnt = 0
+            block_cnt += DFS(i, j, grid[i][j])
+            dfs_cnt_list.append(dfs_cnt)
+            dfs_cnt = 0
 
     print(block_cnt, max(dfs_cnt_list))
