@@ -31,11 +31,11 @@ def runLengthEncoding(x):
 if __name__=="__main__":
     string = sys.stdin.readline()
 
-    if len(string) == 2:
+    if len(string) == 1:
         print(2)
 
     else:
-        min_length = len(string)
+        min_length = len(string) * 2
 
         for _ in range(len(string)):
             string = shiftOnce(string)
