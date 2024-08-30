@@ -3,7 +3,7 @@ import sys
 def shiftOnce(x):
     x = list(x) # string은 값 변경이 불가능함, 리스트로 변경
     tmp = x[-1]
-    
+
     for i in range(len(x)-1, 0, -1):
         x[i] = x[i-1] # shift 적용
 
@@ -29,7 +29,7 @@ def runLengthEncoding(x):
     return len(result)
 
 if __name__=="__main__":
-    string = sys.stdin.readline()
+    string = sys.stdin.readline().strip()
 
     if len(string) == 1:
         print(2)
