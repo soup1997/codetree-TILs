@@ -35,10 +35,10 @@ if __name__=="__main__":
         print(2)
 
     else:
-        min_length = len(string) * 10
+        min_length = []
 
         for _ in range(len(string)):
             string = shiftOnce(string)
-            min_length = min(min_length, runLengthEncoding(string))
+            min_length.append(runLengthEncoding(string))
         
-        print(min_length)
+        print(min(min_length))
