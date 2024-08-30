@@ -37,8 +37,9 @@ if __name__=="__main__":
     else:
         min_length = len(string) * 2
 
+        original_string = string
         for _ in range(len(string)):
-            string = shiftOnce(string)
+            string = shiftOnce(original_string)
             min_length = min(min_length, runLengthEncoding(string))
-        
+
         print(min_length)
