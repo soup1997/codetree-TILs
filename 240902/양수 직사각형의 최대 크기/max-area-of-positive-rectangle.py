@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(1000)
+sys.setrecursionlimit(100000)
 
 n, m = map(int, sys.stdin.readline().split())
 grid = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
@@ -32,7 +32,6 @@ def dfs(x, y):
             visited[X][Y] = True
             square_size += 1
             dfs(X, Y)
-
 
 if __name__=='__main__':
     sizes = []
