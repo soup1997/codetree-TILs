@@ -4,14 +4,14 @@ n, m = map(int, sys.stdin.readline().split())
 grid = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
 
 def isSquare(sx, sy, ex, ey):
-    for i in range(sx, ex):
-        for j in range(sy, ey):
+    for i in range(sx, ex+1):
+        for j in range(sy, ey+1):
             if grid[i][j] <= 0:
                 return False
     
     return True
 
-def maxSquare(x, y)
+def maxSquare(x, y):
     square_size = -1
 
     for i in range(x, n):
