@@ -19,10 +19,10 @@ def search(r, c):
 
         if inRange(x, y):
             if grid[x][y] > grid[r][c]: # 인접한 4칸중에 기준 칸보다 값이 크다면
-                print(grid[x][y], end=" ")
-                search(x, y)
-                break
+                print(grid[x][y], end=" ") # 인접한 칸 출력
+                search(x, y) # 재귀 돌리기
+                break # 재귀 끝나면 다음 direction을 볼 필요가 없음
             
 
-print(grid[r][c], end=" ")
+print(grid[r][c], end=" ") # 첫 방문 지점 출력
 search(r, c)
