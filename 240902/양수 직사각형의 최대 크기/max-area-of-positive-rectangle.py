@@ -41,5 +41,9 @@ if __name__=='__main__':
                 dfs(i, j)
                 sizes.append(square_size)
                 square_size = 1
+
+    if len(sizes) == 0:
+        print(-1)
     
-    print(max(sizes))
+    else:
+        print(max(sizes))
