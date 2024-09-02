@@ -1,5 +1,4 @@
 import sys
-sys.setrecursionlimit(100000)
 
 n, m = map(int, sys.stdin.readline().split())
 grid = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
