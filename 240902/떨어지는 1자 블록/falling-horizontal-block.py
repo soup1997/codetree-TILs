@@ -9,10 +9,11 @@ def fallingDown(k):
     max_row, max_column = (0, k + m - 1)
     empty = True
 
-    for i in range(0, n):
+    for i in range(n):
         for j in range(k, k+m):
             if grid[i][j] == 1:
                 empty = not empty
+                break
 
         if empty:
             max_row = max(max_row, i)
