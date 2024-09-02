@@ -10,10 +10,11 @@ def fallingDown(k):
     max_row = 0
 
     for i in range(n):
-        result = any(grid[i][k:k+m]) # 해당 열에서 블록 크기 만큼 슬라이싱했을때 하나라도 1이면 True, 못집어 넣음
+        result = any(grid[i][k:k+m]) # 해당 열에서 블록 크기 만큼 슬라이싱했을때 하나라도 1이면 True, 하강 불가
         
-        if not result:
-            max_row = max(max_row, i)
+        if result: # 모두다 0이라면 블록 하강 가능
+            max_row = max(max_row, i-1)
+            break
 
     return max_row
 
