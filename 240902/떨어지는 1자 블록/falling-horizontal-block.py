@@ -6,7 +6,7 @@ block = [1] * m
 k = k-1
 
 def fallingDown(k):
-    max_row, max_column = 0, k
+    max_row, max_column = 0, k + m-1
     for i in range(1, n):
         for j in range(k, k+m):
             if grid[i][j] == 0:
