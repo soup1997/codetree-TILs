@@ -27,5 +27,8 @@ if __name__=='__main__':
             if isPositive(i, j):
                 square_size = calcSize(i, j)
                 sizes.append(square_size)
-
-    print(max(sizes))
+    if len(sizes) == 0:
+        print(-1)
+    
+    else:
+        print(max(sizes))
