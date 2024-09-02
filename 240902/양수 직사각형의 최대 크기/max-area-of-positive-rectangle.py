@@ -1,8 +1,14 @@
 import sys
-sys.setrecursionlimit(10000000)
 
 n, m = map(int, sys.stdin.readline().split())
 grid = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+
+n, m = 4, 5
+grid = [[6, -2, 4, -3, 1],
+[3, 6, 7, -4, 1],
+[6, 1, 8, 15, -5],
+[3, -5, 1, 16, 3]]
+
 visited = [[False for _ in range(m)] for _ in range(n)]
 directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
 square_size = 1
@@ -41,5 +47,9 @@ if __name__=='__main__':
                 dfs(i, j)
                 sizes.append(square_size)
                 square_size = 1
+
+    if len(sizes) == 0:
+        print(-1)
     
-    print(max(-1, max(sizes)))
+    else:
+        print(max(sizes))
