@@ -6,7 +6,7 @@ grid = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
 def isSquare(sx, sy, ex, ey):
     for i in range(sx, ex):
         for j in range(sy, ey):
-            if grid[i][j] < 0:
+            if grid[i][j] <= 0:
                 return False
     
     return True
