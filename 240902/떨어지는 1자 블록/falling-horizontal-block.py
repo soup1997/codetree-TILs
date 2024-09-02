@@ -1,31 +1,24 @@
-import sys
+n, m, k = tuple(map(int, input().split()))
+grid = [list(map(int, input().split())) for _ in range(n)]
+k -= 1
 
-n, m, k = map(int, sys.stdin.readline().split())
-grid = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+# 해당 row에 [col_s, col_e] 열에
+# 전부 블럭이 없는지를 확인합니다.
+def all_blank(row, col_s, col_e):
+    return all([not grid[row][col_s: col_e+1]])
 
-block = [1] * m
-k = k-1
 
-def fallingDown(k):
-    max_row = 0
-    memory = True
+# 최종적으로 도달하게 될 위치는
+# 그 다음 위치에 최초로 블럭이 존재하는 순간임을 이용합니다.
+def get_target_row():
+    for row in range(n - 1):
+        if not all_blank(row + 1, k, k + m - 1):
+            return row
 
-    for i in range(n):
-        check = any(grid[i][k:k+m]) # 해당 열에서 블록 크기 만큼 슬라이싱했을때 하나라도 1이면 True, 하강 불가
-        
-        if not check and not memory: # 모두다 0 이라면 블록 하강 가능
-            max_row = max(max_row, i)
-            break
-        
-        else:
-            memory = not memory
+    return n - 1
 
-    return max_row
+target_row = get_target_row()
+grid[target_row][k, k + m] = [1] * m
 
-        
-
-max_row, max_column = fallingDown(k), k + m - 1
-grid[max_row][k:max_column+1] = block
-
-for row in grid:
-    print(*row)
+for i in range(n):
+    print(* grid[i], end=" ")
