@@ -5,9 +5,9 @@ n, k = map(int, sys.stdin.readline().split())
 grid = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
 vertices = [list(map(int, sys.stdin.readline().split())) for _ in range(k)]
 visited = [[False for _ in range(n)] for _ in range(n)]
-directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+directions = [[-1, 0], [1, 0], [0, -1], [0, 1], [0, 0]]
 q = deque()
-cnt = 1
+cnt = 0
 
 def inRange(x, y):
     return (0 <= x) and (x < n) and (0 <= y) and (y < n)
@@ -25,7 +25,6 @@ def bfs(start_x, start_y):
     global cnt, directions, q
 
     q.append((start_x, start_y))
-    visited[start_x][start_y] = True
 
     while q:
         x, y = q.popleft()
@@ -42,7 +41,7 @@ def bfs(start_x, start_y):
 
 if __name__=="__main__":
     for vertex in vertices:
-        x, y = vertex[0] - 1 , vertex[1] - 1
+        x, y = (vertex[0] - 1) , (vertex[1] - 1)
         bfs(x, y)
     
     print(cnt)
