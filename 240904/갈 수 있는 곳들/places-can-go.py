@@ -5,7 +5,7 @@ n, k = map(int, sys.stdin.readline().split())
 grid = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
 vertices = [list(map(int, sys.stdin.readline().split())) for _ in range(k)]
 visited = [[False for _ in range(n)] for _ in range(n)]
-directions = [[-1, 0], [1, 0], [0, -1], [0, 1], [0, 0]]
+directions = [[-1, 0], [1, 0], [0, -1], [0, 1], [0, 0]] # cnt가 중복되어서 카운트 되는 경우가 있음, 그냥 자기자신까지 directions에 포함
 q = deque()
 cnt = 0
 
@@ -24,7 +24,7 @@ def canGo(x, y):
 def bfs(start_x, start_y):
     global cnt, directions, q
 
-    q.append((start_x, start_y))
+    q.append((start_x, start_y)) # directions에 자기자신도 포함되어있으므로 방문처리 안함
 
     while q:
         x, y = q.popleft()
