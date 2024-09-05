@@ -19,11 +19,11 @@ def inRange(x, y):
 def isVisited(x, y):
     return visited[x][y]
 
-def canGo(x, y):
-    return inRange(x, y) and not isVisited(x, y)
-
 def isSmaller(x, y, ref):
     return grid[x][y] < ref
+
+def canGo(x, y, ref):
+    return inRange(x, y) and not isVisited(x, y) and isSmaller(x, y, ref)
 
 
 
@@ -42,7 +42,7 @@ for _ in range(k): # k번 반복
             dx, dy = direction[0], direction[1]
             X, Y = x + dx, y + dy
 
-            if canGo(X, Y) and isSmaller(X, Y, grid[r][c]):
+            if canGo(X, Y, grid[r][c]):
                 q.append((X, Y))
                 visited[X][Y] = True
 
