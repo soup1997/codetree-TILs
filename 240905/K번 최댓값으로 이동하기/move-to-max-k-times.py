@@ -16,17 +16,12 @@ sx, sy = r, c # 시작 기준 좌표
 def inRange(x, y): # grid 바깥을 넘어가지 않는지 검사
     return (0 <= x) and (x < n) and (0 <= y) and (y < n)
 
-def isVisited(x, y): # 방문한 좌표인지 검사
-    return visited[x][y]
-
-def isSmaller(x, y, ref): # 기준 좌표보다 작은 값을 가지고 있는지 검사
-    return grid[x][y] < ref
-
 def canGo(x, y, ref): # 3가지 조건을 모두 충족해야 함
-    return inRange(x, y) and not isVisited(x, y) and isSmaller(x, y, ref)
+    return inRange(x, y) and not visited[x][y] and grid[x][y] < ref
 
+# Repeat BFS k times
 for _ in range(k):
-    maxval = 0 # grid 내에 1이상 100이하의 숫자만 존재하므로 0으로 초기화
+    maxval = 1 # grid 내에 1이상 100이하의 숫자만 존재하므로 0으로 초기화
     visited = [[False for _ in range(n)] for _ in range(n)] # visited 초기화
 
     # bfs 시작
@@ -45,20 +40,18 @@ for _ in range(k):
                 q.append((X, Y))
                 visited[X][Y] = True
 
-                # maxval 값이 하나라면 
                 if grid[X][Y] > maxval: # 현재 탐색하고 있는 좌표값이 maxval보다 크다면
                     maxval = grid[X][Y] # maxval 업데이트, 애초에 canGo에서 기준좌표 값 보다 작은 값만 움직이게 했으므로 기준 좌표 값보다 무조건 작은 값임
-                    sx, sy = X, Y # 해당 최댓값을 다음 for문 시작 좌표로 설정
+                    sx, sy = X, Y
 
-                # maxval 값이 두개 이상이라면
                 elif grid[X][Y] == maxval:
                     if sx > X: # 현재 탐색 x좌표가 시작 x좌표보다는 무조건 작아야 함 (우선순위 1)
                         sx, sy = X, Y
                     
-                    else: # 현재 탐색 x좌표와 시작 x좌표값과 같다면 (우선순위 2)
-                        if sy > Y: # 현재 탐색 
+                    elif sx == X:
+                        if sy > Y: # 현재 탐색 y좌표가 시작 y좌표보다는 무조건 작아야함 (우선순위 2)
                             sx, sy = X, Y
     
-    r, c = sx, sy
+    r, c = sx, sy # 다음 시작점 최종 업데이트
 
 print(f'{sx+1} {sy+1}')
