@@ -21,7 +21,7 @@ def canGo(x, y, ref): # 3가지 조건을 모두 충족해야 함
 
 # Repeat BFS k times
 for _ in range(k):
-    maxval = 1 # grid 내에 1이상 100이하의 숫자만 존재하므로 0으로 초기화
+    maxval = 0 # grid 내에 1이상 100이하의 숫자만 존재하므로 0으로 초기화
     visited = [[False for _ in range(n)] for _ in range(n)] # visited 초기화
 
     # bfs 시작
@@ -45,12 +45,8 @@ for _ in range(k):
                     sx, sy = X, Y
 
                 elif grid[X][Y] == maxval:
-                    if sx > X: # 현재 탐색 x좌표가 시작 x좌표보다는 무조건 작아야 함 (우선순위 1)
+                    if X < sx or (X ==sx and Y < sy): # 현재 탐색 x좌표가 시작 x좌표보다는 무조건 작아야 함 (우선순위 1)
                         sx, sy = X, Y
-                    
-                    elif sx == X:
-                        if sy > Y: # 현재 탐색 y좌표가 시작 y좌표보다는 무조건 작아야함 (우선순위 2)
-                            sx, sy = X, Y
     
     r, c = sx, sy # 다음 시작점 최종 업데이트
 
