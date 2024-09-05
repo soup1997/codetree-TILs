@@ -55,8 +55,9 @@ for _ in range(k): # k번 반복
                         sx, sy = X, Y
                     
                     elif sx == X:
-                        sx, sy = X, Y
+                        if sy > Y:
+                            sx, sy = X, Y
     
     r, c = sx, sy
 
-print(f'{sx} {sy}')
+print(f'{sx+1} {sy+1}')
