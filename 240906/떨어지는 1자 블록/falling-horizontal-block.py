@@ -9,10 +9,12 @@ if n == 1:
     print(1)
 
 else:
-    for i in range(1, len(grid)):
-        if not all(grid[i][k-1:k+m-1]):
-            grid[i][k-1:k+m-1] = block
-            break
+    max_row = 0
+    for i in range(len(grid)):
+        if grid[i][k-1:k+m-1] == [0] * m:
+            max_row = max(max_row, i)
+
+    grid[max_row][k-1:k+m-1] = block
 
     for row in grid:
         print(*row)
