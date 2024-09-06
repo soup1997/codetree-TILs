@@ -11,7 +11,7 @@ if n == 1:
 else:
     for i in range(1, len(grid)):
         if not all(grid[i][k-1:k+m-1]):
-           grid[i][k-1:k+m-1] = block
+            grid[i][k-1:k+m-1] = block
             break
 
     for row in grid:
