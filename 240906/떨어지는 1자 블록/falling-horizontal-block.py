@@ -7,8 +7,9 @@ block_range = [k-1, k+m-1]
 
 
 max_row = 0
+
 for i in range(len(grid)):
-    if grid[i][k-1:k+m-1] == [0] * m:
+    if grid[i][k-1:k+m-1].count(0) == m:
         max_row = max(max_row, i)
 
 grid[max_row][k-1:k+m-1] = block
