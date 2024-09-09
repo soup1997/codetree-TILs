@@ -10,19 +10,19 @@ def shiftOnce(x):
 
     return ''.join(x) # list를 다시 string으로 변경
 
-def runLengthEncoding(x): # 제일 중요한 부분
+def runLengthEncoding(string): # 제일 중요한 부분
     result = ""
-    i = 0 # 초기 인덱스
+    i = 0 
 
-    while i < len(x): # 순회
-        char = x[i] # 현재 기준 문자
+    while i < len(string): # 순회
+        char = string[i] # 현재 기준 문자
         cnt = 1 # 카운트 1부터 시작
 
-        while (i <= len(x)-1 and x[i+1] == char): # 다음 인덱스가 문자열 길이보다 작고, 다음 인덱스의 문자가 현재 기준 문자와 같을때까지 탐색
+        while (i+1 < len(string) and string[i+1] == char): # 다음 인덱스가 문자열 길이보다 작고, 다음 인덱스의 문자가 현재 기준 문자와 같을때까지 탐색
             cnt += 1
             i += 1
         
-        result += char + str(cnt)
+        result += f'{char}{cnt}'
         i += 1 # 이렇게 하면 문자가 다른것부터 탐색 시작
 
     return len(result)
