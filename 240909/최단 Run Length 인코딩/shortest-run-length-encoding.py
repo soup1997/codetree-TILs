@@ -23,7 +23,6 @@ def runLengthEncoding(string): # 제일 중요한 부분
             i += 1
         
         result += f'{char}{cnt}'
-        i += 1 # 이렇게 하면 문자가 다른것부터 탐색 시작
 
     return len(result)
 
