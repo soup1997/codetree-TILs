@@ -14,9 +14,11 @@ while idx < len(m)-1:
     else:
         before_end = m[idx][1]
 
-        while idx < len(m)-1 and before_end > m[idx+1][0]:
-            idx += 1
-        
-        cnt += 1
+        while idx < len(m)-1:
+            if before_end <= m[idx+1][0]:
+                cnt += 1
+                break
 
-print(cnt)
+            idx += 1
+
+print(cnt+1)
