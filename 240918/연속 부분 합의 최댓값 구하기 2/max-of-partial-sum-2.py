@@ -3,9 +3,10 @@ import sys
 n = int(sys.stdin.readline())
 sequence = list(map(int, sys.stdin.readline().split()))
 candidate = []
-total = 0
 
-for i in range(len(sequence)):
+total = sequence[0]
+
+for i in range(1, len(sequence)):
     total += sequence[i]
 
     if total < 0:
