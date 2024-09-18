@@ -5,7 +5,7 @@ jewels = []
 
 for _ in range(n):
     w, v = map(int, sys.stdin.readline().split())
-    ratio = round(v / w, 3) # 무게 대비 가치가 높은 보석이 최우선 순위
+    ratio = v / w # 무게 대비 가치가 높은 보석이 최우선 순위
     jewels.append([w, v, ratio]) # 무게, 가치, 비율
 
 jewels.sort(key=lambda x: x[2], reverse=True) # 내림차순 정렬
