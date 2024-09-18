@@ -8,9 +8,8 @@ total = 0
 for i in range(len(sequence)):
     total += sequence[i]
 
-    if total < 0:
+    if total < 0 or i == len(sequence)-1:
         candidate.append(total)
         total = 0
-candidate.append(total)
 
 print(max(candidate))
