@@ -1,6 +1,6 @@
 import sys
 
-MAX_NUM = 50000
+MAX_NUM = 20000
 
 # 변수 선언 및 입력:
 n = int(sys.stdin.readline())
@@ -10,7 +10,7 @@ ans = MAX_NUM
 # 그 중 가장 좋은 선택을 합니다.
 for i in range(MAX_NUM + 1):
     remainder = n - 5 * i
-    
+
     if remainder < 0:
         break
     
