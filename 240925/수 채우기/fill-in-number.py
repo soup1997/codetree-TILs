@@ -9,7 +9,7 @@ ans = MAX_NUM
 # 사용할 5원 동전의 수를 전부 가정해보며
 # 그 중 가장 좋은 선택을 합니다.
 for i in range(MAX_NUM + 1):
-    remainder = n - 5 * i
+    remainder = n - (5 * i)
 
     if remainder < 0:
         break
