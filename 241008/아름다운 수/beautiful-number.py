@@ -1,7 +1,7 @@
 import sys
 
 answer = 0
-n = 2
+n = int(sys.stdin.readline())
 
 # 아름다운 수 인지 확인하는 함수
 def check(num_list):
