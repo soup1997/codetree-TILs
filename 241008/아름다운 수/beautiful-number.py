@@ -6,6 +6,7 @@ n = int(sys.stdin.readline())
 def check(num_list):
     global answer
 
+    flag = True
     for i in range(len(num_list)):
         standard = num_list[i]
         cnt = 0
@@ -13,8 +14,11 @@ def check(num_list):
             cnt += 1
             i += 1
         
-        if cnt == standard:
-            answer += 1
+        if cnt != standard:
+            flag = False
+
+    if flag:
+        answer += 1 
             
 
 def makeBeautifulNum():
