@@ -1,16 +1,19 @@
 import sys
 
 answer = 0
-n = int(sys.stdin.readline())
+n = 2
 
+# 아름다운 수 인지 확인하는 함수
 def check(num_list):
     global answer
-
     flag = True
-    for i in range(len(num_list)):
+    i = 0
+    
+    while i < len(num_list):
         standard = num_list[i]
         cnt = 0
-        while(i < len(num_list) and standard == num_list[i]):
+
+        while i < len(num_list) and standard == num_list[i]:
             cnt += 1
             i += 1
         
@@ -18,9 +21,10 @@ def check(num_list):
             flag = False
 
     if flag:
-        answer += 1 
+        answer += 1
             
 
+# back tracking
 def makeBeautifulNum():
     global num
 
