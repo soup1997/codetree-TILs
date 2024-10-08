@@ -6,7 +6,7 @@ vector<int> answer;
 int K, N;
 
 void choose(){
-    if(answer.size() == 2){
+    if(answer.size() == N){
         for(auto a: answer){
             cout << a << " ";
         }
@@ -18,7 +18,6 @@ void choose(){
             answer.emplace_back(i);
             choose();
             answer.pop_back();
-
         }
     }
 }
